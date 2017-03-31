@@ -1,0 +1,11 @@
+uuid: dcc0addd-eca1-4c20-84ff-b1bb22aa361a
+langcode: en
+status: true
+dependencies: {  }
+id: zeeto_localhost_directory
+domain_id: 3534710638
+hostname: zeeto.localhost.directory
+name: 'Zeeto Directory'
+scheme: http
+weight: 2
+is_default: false

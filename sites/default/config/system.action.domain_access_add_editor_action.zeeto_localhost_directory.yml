@@ -1,0 +1,14 @@
+uuid: 5f245446-0ae4-4ae6-94e4-b0d0e210eef2
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.zeeto_localhost_directory
+  module:
+    - domain_access
+id: domain_access_add_editor_action.zeeto_localhost_directory
+label: 'Add editors to the Zeeto Directory domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: zeeto_localhost_directory

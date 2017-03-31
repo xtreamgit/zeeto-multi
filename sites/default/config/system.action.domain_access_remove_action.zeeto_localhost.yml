@@ -1,0 +1,14 @@
+uuid: 9afe4031-5ed0-4b32-95c0-c92ad70ffd37
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.zeeto_localhost
+  module:
+    - domain_access
+id: domain_access_remove_action.zeeto_localhost
+label: 'Remove selected content from the Zeeto domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: zeeto_localhost

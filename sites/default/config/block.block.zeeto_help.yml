@@ -1,0 +1,22 @@
+uuid: 6e61fc0c-77b7-42e3-a70a-3415c50e87af
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - zeeto
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: zeeto_help
+theme: zeeto
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

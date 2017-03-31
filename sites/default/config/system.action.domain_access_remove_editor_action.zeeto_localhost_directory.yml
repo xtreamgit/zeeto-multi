@@ -1,0 +1,14 @@
+uuid: 590f5652-13cd-48a8-ae98-f6b101960e83
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.zeeto_localhost_directory
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.zeeto_localhost_directory
+label: 'Remove editors from the Zeeto Directory domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: zeeto_localhost_directory

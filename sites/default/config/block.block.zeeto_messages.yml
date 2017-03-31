@@ -1,0 +1,22 @@
+uuid: 1db333ef-7b04-4a23-8beb-936072ca195d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - zeeto
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: zeeto_messages
+theme: zeeto
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 33f24abb-76f3-4733-bda3-6cd4600f5fe7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - zeeto
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: zeeto_local_actions
+theme: zeeto
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,14 @@
+uuid: b3923c11-8dca-4fa5-8e44-a9d9da004bb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.zeeto_localhost_directory
+  module:
+    - domain_access
+id: domain_access_add_action.zeeto_localhost_directory
+label: 'Add selected content to the Zeeto Directory domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: zeeto_localhost_directory
