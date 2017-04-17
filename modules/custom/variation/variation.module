@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Contains variation.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function variation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the variation module.
+    case 'help.page.variation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Variation') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function variation_panelizer_pre_view_builder_alter(&$view_mode, \Drupal\Core\Entity\EntityInterface $entity, &$langcode) {
+  if ($entity->getEntityTypeId() == 'node') {
+    $variation = variation_get_current_variation();
+
+    // Validate the view mode.
+    $valid_variations = \Drupal::service('entity_display.repository')->getViewModeOptions('node');
+
+    if (!array_key_exists($variation->variant->value, $valid_variations)) {
+      return;
+    }
+
+    // Set the view mode.
+    $view_mode = $variation->variant->value;
+  }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ *
+ * Add next page in variation configuration as JS variable.
+ */
+function variation_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+  if ($entity->getEntityType()->id() == 'node') {
+    $variation = variation_get_current_variation();
+
+    // Get the list of pages.
+    $pages = array_map(function($n) {
+      return $n->nid->value;
+    }, $variation->pages->referencedEntities());
+
+    array_push($pages, $variation->final_page->value);
+
+    // Get the current page index from the list.
+    $current_page = array_search($entity->id(), $pages);
+
+    // Get the next page index from the list.
+    $next_page = $pages[$current_page + 1];
+
+    if ($next_page) {
+      if (is_integer($next_page)) {
+        $next_page = "/$vid/pg$next_page";
+      }
+      // Add value of $next_page as drupalSettings JS variable.
+      $build['#attached']['drupalSettings']['variation']['next_page'] = $next_page;
+    }
+  }
+}
+
+/**
+ * Get the current page's corresponding variation configuration.
+ *
+ * @return \Drupal\variation\Entity\VariationEntity
+ *   The current page's corresponding variation entity or FALSE if none found.
+ */
+function variation_get_current_variation() {
+  // Load the configuration entity via the URL.
+  $path = explode('/', \Drupal::request()->getRequestUri());
+  if ($path < 2) {
+    return;
+  }
+  $variation_id = $path[1];
+
+  // Get the chosen theme from the configuration entity.
+  $vid = \Drupal::entityQuery('variation_entity')
+    ->condition('variation_id', $variation_id)
+    ->execute();
+
+  if (!is_array($vid)) {
+    return FALSE;
+  }
+
+  $vid = reset($vid);
+
+  return \Drupal::entityTypeManager()->getStorage('variation_entity')->load($vid);
+}

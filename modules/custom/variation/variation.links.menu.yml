@@ -1,0 +1,14 @@
+
+# Variation entity menu items definition
+entity.variation_entity.collection:
+  title: 'Variation entity list'
+  route_name: entity.variation_entity.collection
+  description: 'List Variation entities'
+  parent: system.admin_structure
+  weight: 100
+
+variation_entity.admin.structure.settings:
+  title: Variation entity settings
+  description: 'Configure Variation entities'
+  route_name: variation_entity.settings
+  parent: system.admin_structure

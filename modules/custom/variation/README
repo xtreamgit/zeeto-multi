@@ -1,0 +1,13 @@
+1. Enable this module and panelizer.
+2. Navigate to /admin/structure/display-modes/view and add 3 new view modes under "Content": "Theme 1", "Theme 2", "Theme 3".
+3. Navigate to /admin/structure/types/manage/page/display.
+4. Choose "Panelize this view mode".
+5. Under "Custom Display Settings", choose only the 3 view modes created above then Save.
+6. Make some alterations to the Default display for each view mode.
+7. Create some test basic page content.
+8. Navigate to /admin/structure and click "Variation entity list".
+9. Add one or more variation entities.
+10. Go back to the test basic page content created in step 7 and create an alias that matches the variation ID from one of the variation entities.
+11. Load the page via the alias.
+12. Edit the selected theme within the variation.
+13. Refresh the page, observe new layout.

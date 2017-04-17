@@ -1,0 +1,5 @@
+entity.variation_entity.add_form:
+  route_name: entity.variation_entity.add_form
+  title: 'Add Variation entity'
+  appears_on:
+    - entity.variation_entity.collection

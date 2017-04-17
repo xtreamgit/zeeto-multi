@@ -1,0 +1,33 @@
+add variation entity entities:
+  title: 'Create new Variation entity entities'
+
+administer variation entity entities:
+  title: 'Administer Variation entity entities'
+  description: 'Allow to access the administration form to configure Variation entity entities.'
+  restrict access: true
+
+delete variation entity entities:
+  title: 'Delete Variation entity entities'
+
+edit variation entity entities:
+  title: 'Edit Variation entity entities'
+
+access variation entity overview:
+  title: 'Access the Variation entity overview page'
+
+view published variation entity entities:
+  title: 'View published Variation entity entities'
+
+view unpublished variation entity entities:
+  title: 'View unpublished Variation entity entities'
+
+view all variation entity revisions:
+  title: 'View all Variation entity revisions'
+
+revert all variation entity revisions:
+  title: 'Revert all Variation entity revisions'
+  description: 'Role requires permission <em>view Variation entity revisions</em> and <em>edit rights</em> for variation entity entities in question or <em>administer variation entity entities</em>.'
+
+delete all variation entity revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Variation entity revisions</em> and <em>delete rights</em> for variation entity entities in question or <em>administer variation entity entities</em>.'
