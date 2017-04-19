@@ -61,7 +61,8 @@ function variation_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInt
     $next_page = $pages[$current_page + 1];
 
     if ($next_page) {
-      if (is_integer($next_page)) {
+      if (is_numeric($next_page)) {
+        $vid = $variation->variation_id->value;
         $next_page = "/$vid/pg$next_page";
       }
       // Add value of $next_page as drupalSettings JS variable.
