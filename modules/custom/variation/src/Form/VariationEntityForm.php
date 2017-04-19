@@ -42,6 +42,12 @@ class VariationEntityForm extends ContentEntityForm {
   public function save(array $form, FormStateInterface $form_state) {
     $entity = &$this->entity;
 
+    // Get pages and remove final page.
+    $pages = variation_get_pages($entity);
+    array_pop($pages);
+
+    $this->recreateVariantAliases($pages, $entity->variation_id->value);
+
     // Set the Variation ID on initial save.
     if ($entity->isNew()) {
       $entity->variation_id->value = $this->generateVariationId();
@@ -98,4 +104,23 @@ class VariationEntityForm extends ContentEntityForm {
     return $variation_id;
   }
 
+  private function recreateVariantAliases($pages, $vid) {
+    // Delete all aliases that contain the variant ID.
+    $alias = "/$vid/%";
+
+    $query = \Drupal::database()->delete('url_alias')
+      ->condition('alias', $alias, 'LIKE')
+      ->execute();
+
+    // Create new aliases for each node in the correct order.
+    $i = 1;
+    foreach ($pages as $nid) {
+      $system_path = "/node/$nid";
+      $path_alias = "/$vid/pg$i";
+
+      \Drupal::service('path.alias_storage')->save($system_path, $path_alias, 'en');
+
+      $i++;
+    }
+  }
 }
