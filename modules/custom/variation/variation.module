@@ -48,12 +48,7 @@ function variation_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInt
   if ($entity->getEntityType()->id() == 'node') {
     $variation = variation_get_current_variation();
 
-    // Get the list of pages.
-    $pages = array_map(function($n) {
-      return $n->nid->value;
-    }, $variation->pages->referencedEntities());
-
-    array_push($pages, $variation->final_page->value);
+    $pages = variation_get_pages($variation);
 
     // Get the current page index from the list.
     $current_page = array_search($entity->id(), $pages);
@@ -97,4 +92,24 @@ function variation_get_current_variation() {
   $vid = reset($vid);
 
   return \Drupal::entityTypeManager()->getStorage('variation_entity')->load($vid);
+}
+
+/**
+ * Get an array of pages for a variation in the correct order.
+ *
+ * @param Entity $variation
+ *   The variation entity.
+ *
+ * @return array
+ *   An array of node IDs.
+ */
+function variation_get_pages($variation) {
+  // Get the list of pages.
+  $pages = array_map(function($n) {
+    return $n->nid->value;
+  }, $variation->pages->referencedEntities());
+
+  array_push($pages, $variation->final_page->value);
+
+  return $pages;
 }
