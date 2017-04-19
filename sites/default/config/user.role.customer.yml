@@ -1,0 +1,29 @@
+uuid: 67987bba-1559-4729-90b2-8be5acada530
+langcode: en
+status: true
+dependencies: {  }
+id: customer
+label: Customer
+weight: -8
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access domain content'
+  - 'access domain content editors'
+  - 'access kint'
+  - 'access site in maintenance mode'
+  - 'assign domain editors'
+  - 'create article content on assigned domains'
+  - 'create domain content'
+  - 'create page content on assigned domains'
+  - 'delete article content on assigned domains'
+  - 'delete domain content'
+  - 'delete page content on assigned domains'
+  - 'edit domain content'
+  - 'publish to any assigned domain'
+  - 'update article content on assigned domains'
+  - 'update page content on assigned domains'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view the administration theme'
+  - 'view unpublished domain content'

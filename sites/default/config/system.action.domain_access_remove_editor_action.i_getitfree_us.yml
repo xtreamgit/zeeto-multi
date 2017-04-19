@@ -1,0 +1,14 @@
+uuid: bb6feb7c-5c7e-4f97-a11a-5e6f2ee28b6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.i_getitfree_us
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.i_getitfree_us
+label: 'Remove editors from the Getitfree US I domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: i_getitfree_us

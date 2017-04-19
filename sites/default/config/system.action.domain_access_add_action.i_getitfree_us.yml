@@ -1,0 +1,14 @@
+uuid: 1fe2b065-bd26-47e9-ba29-7405638bc6d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.i_getitfree_us
+  module:
+    - domain_access
+id: domain_access_add_action.i_getitfree_us
+label: 'Add selected content to the Getitfree US I domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: i_getitfree_us

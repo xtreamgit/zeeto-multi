@@ -1,0 +1,5 @@
+name: Zeeto Privacy
+description: 'Ensures that the content is not shared between customer groups.'
+core: 8.x
+type: module
+package: Zeeto Custom

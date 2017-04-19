@@ -1,0 +1,14 @@
+uuid: 0f496ee6-da73-462e-9967-114463c0c369
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.g_getitfree_us
+  module:
+    - domain_access
+id: domain_access_add_editor_action.g_getitfree_us
+label: 'Add editors to the Getitfree US G domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: g_getitfree_us

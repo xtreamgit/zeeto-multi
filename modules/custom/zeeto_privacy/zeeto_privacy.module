@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * For customers, add a new condition for domain.
+ */
+function zeeto_privacy_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  return;
+  $currentUser = Drupal::currentUser();
+
+  // Check if it's a customer user. If not, do nothing.
+  $userRoles = $currentUser->getRoles();
+  if (!in_array('customer', $userRoles)) {
+    return;
+  }
+}

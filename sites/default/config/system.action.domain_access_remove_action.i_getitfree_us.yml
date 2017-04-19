@@ -1,0 +1,14 @@
+uuid: ce97d22a-f664-4309-a4eb-ff9041824900
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.i_getitfree_us
+  module:
+    - domain_access
+id: domain_access_remove_action.i_getitfree_us
+label: 'Remove selected content from the Getitfree US I domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: i_getitfree_us

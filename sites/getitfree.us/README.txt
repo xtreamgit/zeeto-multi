@@ -1,0 +1,1 @@
+This directory will host all things regarding getitfree.us subsite.

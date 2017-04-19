@@ -55,7 +55,13 @@
  */
 
 $sites = [
-  // LOCAL
-  'zeeto.localhost' => 'default',
-  'sub.zeeto.localhost' => 'sub',
+  // EXAMPLE
+
+  // getitfree.us subsites.
+  'getitfree.us' => 'getitfree.us',
+  'g.getitfree.us' => 'g.getitfree.us',
+  'i.getitfree.us' => 'i.getitfree.us',
+
+  // samples.com subsites.
+  'samples.com' => 'samples.com',
 ];

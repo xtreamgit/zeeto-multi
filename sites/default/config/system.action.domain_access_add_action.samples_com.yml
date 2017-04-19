@@ -1,0 +1,14 @@
+uuid: 7a66b32c-cacb-4960-bff2-b3c8dbca2fb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.samples_com
+  module:
+    - domain_access
+id: domain_access_add_action.samples_com
+label: 'Add selected content to the Samples Main domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: samples_com

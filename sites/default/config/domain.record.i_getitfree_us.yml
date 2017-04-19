@@ -1,0 +1,11 @@
+uuid: f8f52786-cabb-48b9-85a3-0c5285ad202e
+langcode: en
+status: true
+dependencies: {  }
+id: i_getitfree_us
+domain_id: 2298034113
+hostname: i.getitfree.us
+name: 'Getitfree US I'
+scheme: http
+weight: 4
+is_default: false

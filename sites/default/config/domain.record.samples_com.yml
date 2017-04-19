@@ -1,0 +1,11 @@
+uuid: bed06fa7-f9f3-42a0-b6e2-facad795dd86
+langcode: en
+status: true
+dependencies: {  }
+id: samples_com
+domain_id: 2446999380
+hostname: samples.com
+name: 'Samples Main'
+scheme: http
+weight: 5
+is_default: false

@@ -1,0 +1,8 @@
+uuid: 0423529d-3093-43d2-89ee-0cf8f810c8a6
+langcode: en
+status: true
+dependencies: {  }
+id: customer
+label: Customer
+description: 'Customer only available links '
+locked: false

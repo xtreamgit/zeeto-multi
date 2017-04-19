@@ -1,0 +1,11 @@
+uuid: c7c9ac1d-f7ac-4c6e-b0ea-3d402a7695e6
+langcode: en
+status: true
+dependencies: {  }
+id: getitfree_us
+domain_id: 786831940
+hostname: getitfree.us
+name: 'Getitfree US Main'
+scheme: http
+weight: 2
+is_default: false

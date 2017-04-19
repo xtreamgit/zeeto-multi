@@ -1,0 +1,14 @@
+uuid: 47b9d5e1-488f-4e94-bc2a-53d8bfbab428
+langcode: en
+status: true
+dependencies:
+  config:
+    - domain.record.samples_com
+  module:
+    - domain_access
+id: domain_access_add_editor_action.samples_com
+label: 'Add editors to the Samples Main domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: samples_com
