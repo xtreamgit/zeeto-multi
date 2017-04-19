@@ -48,6 +48,10 @@ function variation_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInt
   if ($entity->getEntityType()->id() == 'node') {
     $variation = variation_get_current_variation();
 
+    if (!$variation) {
+      return;
+    }
+
     $pages = variation_get_pages($variation);
 
     // Get the current page index from the list.
@@ -85,7 +89,7 @@ function variation_get_current_variation() {
     ->condition('variation_id', $variation_id)
     ->execute();
 
-  if (!is_array($vid)) {
+  if (empty($vid)) {
     return FALSE;
   }
 
