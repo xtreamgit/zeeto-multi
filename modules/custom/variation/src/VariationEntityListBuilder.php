@@ -20,8 +20,9 @@ class VariationEntityListBuilder extends EntityListBuilder {
    * {@inheritdoc}
    */
   public function buildHeader() {
-    $header['id'] = $this->t('Variation ID');
+    $header['name'] = $this->t('Name');
     $header['first_url'] = $this->t('First URL');
+    $header['final_page'] = $this->t('Final Page');
     return $header + parent::buildHeader();
   }
 
@@ -31,8 +32,9 @@ class VariationEntityListBuilder extends EntityListBuilder {
   public function buildRow(EntityInterface $entity) {
     global $base_url;
     /* @var $entity \Drupal\variation\Entity\VariationEntity */
-    $row['id'] = $entity->variation_id->value;
+    $row['id'] = $entity->name->value;
     $row['first_url'] = $base_url . '/' . $entity->variation_id->value . '/pg1';
+    $row['final_page'] = $entity->final_page->value;
     return $row + parent::buildRow($entity);
   }
 }
