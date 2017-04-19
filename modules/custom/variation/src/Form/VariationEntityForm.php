@@ -46,12 +46,12 @@ class VariationEntityForm extends ContentEntityForm {
     $pages = variation_get_pages($entity);
     array_pop($pages);
 
-    $this->recreateVariantAliases($pages, $entity->variation_id->value);
-
     // Set the Variation ID on initial save.
     if ($entity->isNew()) {
       $entity->variation_id->value = $this->generateVariationId();
     }
+
+    $this->recreateVariantAliases($pages, $entity->variation_id->value);
 
     // Save as a new revision if requested to do so.
     if (!$form_state->isValueEmpty('new_revision') && $form_state->getValue('new_revision') != FALSE) {
