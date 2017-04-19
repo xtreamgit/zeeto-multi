@@ -89,38 +89,10 @@ class VariationEntityForm extends ContentEntityForm {
    *   A unique 6 digit variation ID.
    */
   private function generateVariationId() {
-    // Generate 6 character ID.
-    $variation_id = substr(uniqid(), -6);
-
-    // Validate ID.
-    $already_exists = \Drupal::entityQuery('variation_entity')
-      ->condition('variation_id', $variation_id)
-      ->execute();
-
-    if ($already_exists) {
-      return $this->generateVariationId();
-    }
-
-    return $variation_id;
+    return variation_generate_id();
   }
 
   private function recreateVariantAliases($pages, $vid) {
-    // Delete all aliases that contain the variant ID.
-    $alias = "/$vid/%";
-
-    $query = \Drupal::database()->delete('url_alias')
-      ->condition('alias', $alias, 'LIKE')
-      ->execute();
-
-    // Create new aliases for each node in the correct order.
-    $i = 1;
-    foreach ($pages as $nid) {
-      $system_path = "/node/$nid";
-      $path_alias = "/$vid/pg$i";
-
-      \Drupal::service('path.alias_storage')->save($system_path, $path_alias, 'en');
-
-      $i++;
-    }
+    variation_recreate_variant_aliases($pages, $vid);
   }
 }
