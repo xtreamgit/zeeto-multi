@@ -71,6 +71,15 @@ function variation_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInt
   }
 }
 
+function variation_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if (\Drupal::request()->request->get('form_id') == 'entity_clone_form') {
+    $entity->variation_id->value = variation_generate_id();
+    $pages = variation_get_pages($entity);
+    array_pop($pages);
+    variation_recreate_variant_aliases($pages, $entity->variation_id->value);
+  }
+}
+
 /**
  * Get the current page's corresponding variation configuration.
  *
