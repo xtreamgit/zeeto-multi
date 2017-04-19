@@ -86,6 +86,20 @@ function variation_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function variation_form_entity_clone_form_alter(&$form, $form_state, $form_id) {
+  $form['#submit'][] = 'variation_form_entity_clone_form_save';
+}
+
+/**
+ * Correctly sets redirect upon clone.
+ */
+function variation_form_entity_clone_form_save(&$form, $form_state) {
+  $form_state->setRedirect('entity.variation_entity.collection');
+}
+
+/**
  * Get the current page's corresponding variation configuration.
  *
  * @return \Drupal\variation\Entity\VariationEntity
