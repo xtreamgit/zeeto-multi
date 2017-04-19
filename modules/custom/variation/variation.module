@@ -169,13 +169,17 @@ function variation_generate_id() {
   return $variation_id;
 }
 
+/**
+ * Recreate all variant aliases.
+ *
+ * @param array $pages
+ *   The array of node IDs to create aliases for.
+ * @param string $vid
+ *   The variant ID.
+ */
 function variation_recreate_variant_aliases($pages, $vid) {
   // Delete all aliases that contain the variant ID.
-  $alias = "/$vid/%";
-
-  \Drupal::database()->delete('url_alias')
-    ->condition('alias', $alias, 'LIKE')
-    ->execute();
+  variation_delete_variant_aliases($vid);
 
   // Create new aliases for each node in the correct order.
   $i = 1;
@@ -187,4 +191,19 @@ function variation_recreate_variant_aliases($pages, $vid) {
 
     $i++;
   }
+}
+
+/**
+ * Delete all old variant aliases.
+ *
+ * @param string $vid
+ *   The variant ID.
+ */
+function variation_delete_variant_aliases($vid) {
+  // Delete all aliases that contain the variant ID.
+  $alias = "/$vid/%";
+
+  \Drupal::database()->delete('url_alias')
+    ->condition('alias', $alias, 'LIKE')
+    ->execute();
 }
